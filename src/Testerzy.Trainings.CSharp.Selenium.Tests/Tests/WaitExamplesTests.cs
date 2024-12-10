@@ -1,12 +1,5 @@
-﻿using NUnit.Framework.Constraints;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using Testerzy.Trainings.CSharp.Selenium.Demobank.Extensions;
 
 namespace Testerzy.Trainings.CSharp.Selenium.Demobank.Tests;
