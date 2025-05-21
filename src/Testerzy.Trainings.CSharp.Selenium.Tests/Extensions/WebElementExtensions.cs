@@ -27,4 +27,10 @@ public static class WebElementExtensions
         return webDriver.GetWait(TimeSpan.FromSeconds(10))
             .Until(ExpectedConditions.ElementToBeClickable(webElement));
     }
+
+    public static SelectElement GetSelect(this IWebElement webElement, By selectLocator)
+    {
+        var selectElement = webElement.FindElement(selectLocator);
+        return new SelectElement(selectElement);
+    }
 }

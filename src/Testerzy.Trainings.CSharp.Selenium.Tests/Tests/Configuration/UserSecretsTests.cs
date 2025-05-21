@@ -1,4 +1,5 @@
-﻿using Testerzy.Trainings.CSharp.Selenium.Configuration;
+﻿using Microsoft.VisualBasic;
+using Testerzy.Trainings.CSharp.Selenium.Configuration;
 using Testerzy.Trainings.CSharp.Selenium.Configuration.Models;
 
 namespace Testerzy.Trainings.CSharp.Selenium.Demobank.Tests.Configuration;
@@ -15,5 +16,16 @@ public class UserSecretsTests
 
         Assert.That(settings.App.Url, Is.EqualTo("https://demo-bank.vercel.app/"));
         Assert.That(settings.App.ApiKey, Is.EqualTo("abc123cde321"));
+    }
+
+    [Test]
+    public void VerifyDatabasePasswordIsLoadedFromUserSecrets()
+    {
+        Settings settings = new SettingsBuilder()
+            .AddAppSettings()
+            .AddUserSecrets()
+            .Build();
+
+        Assert.That(settings.Database.Password, Is.EqualTo("db-secret-pass"));
     }
 }

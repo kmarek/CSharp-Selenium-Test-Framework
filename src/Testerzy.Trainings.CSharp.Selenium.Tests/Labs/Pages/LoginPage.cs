@@ -4,7 +4,7 @@ namespace Testerzy.Trainings.CSharp.Selenium.Demobank.Labs.Pages;
 
 public class LoginPage : BasePage
 {
-    By LoginLocator => By.Id("login_id");
+    public By LoginLocator => By.Id("login_id");
     By PasswordLocator => By.Id("login_password");
     By LoginBtnLocator => By.Id("login-btn");
 
@@ -20,4 +20,7 @@ public class LoginPage : BasePage
 
         return new MyDesktopPage(Driver);
     }
+
+    public void SetUserName(string username) { }
+    public void SetPassword(string password) { }
 }

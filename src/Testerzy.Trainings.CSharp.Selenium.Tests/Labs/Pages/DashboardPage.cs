@@ -16,4 +16,6 @@ public class DashboardPage : BasePage
         var uiDialogElement = Driver.FindElement(UiDialogLocator);
         return new UiDialogComponent(uiDialogElement);
     }
+
+    public string GetTitle() => "";
 }

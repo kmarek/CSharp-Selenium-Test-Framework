@@ -5,7 +5,7 @@ namespace Testerzy.Trainings.CSharp.Selenium.Demobank.Labs.Pages;
 
 public class MyDesktopPage : DashboardPage
 {
-    protected By AccountBalance => By.Id("money_value");
+    protected By AccountBalanceLocator => By.Id("money_value");
     public QuickPaymentComponent QuickPayment => new(Driver.FindElements(By.CssSelector(".accounts-widgets .widget"))[0]);
 
     public MyDesktopPage(IWebDriver driver) : base(driver)
@@ -16,6 +16,18 @@ public class MyDesktopPage : DashboardPage
     {
         QuickPayment.SendPayment(receiver, amount, title);
         GetDialog().Close();
+        return this;
+    }
+
+    public int GetBalance()
+    {
+        string balance = Driver.FindElement(AccountBalanceLocator).Text;
+        return Convert.ToInt32(balance);
+    }
+
+    public MyDesktopPage GetBalance(out int balance)
+    {
+        balance = GetBalance();
         return this;
     }
 }

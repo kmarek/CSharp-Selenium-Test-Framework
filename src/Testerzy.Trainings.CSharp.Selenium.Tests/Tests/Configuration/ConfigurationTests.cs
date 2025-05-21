@@ -76,4 +76,11 @@ public class ConfigurationTests
         Assert.That(GlobalSetup.Settings.TestData.Users.Count, Is.EqualTo(2));
         Assert.That(GlobalSetup.Settings.TestData.Users.First().Username, Is.EqualTo("OkUser01"));
     }
+
+    [Test]
+    public void TestBrowserName()
+    {
+        var browserNameFromConfig = GlobalSetup.Settings.BrowserName;
+        Console.WriteLine($"browserNameFromConfig: {browserNameFromConfig}");
+    }
 }

@@ -5,7 +5,7 @@ namespace Testerzy.Trainings.CSharp.Selenium.Demobank.Tests;
 
 public class BaseTest
 {
-    protected IWebDriver WebDriver { get; set; }
+    public IWebDriver WebDriver { get; set; }
 
     [SetUp]
     public void BaseSetUp()

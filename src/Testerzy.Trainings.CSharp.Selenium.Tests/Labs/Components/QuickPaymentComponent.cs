@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
+using Testerzy.Trainings.CSharp.Selenium.Demobank.Extensions;
 
 namespace Testerzy.Trainings.CSharp.Selenium.Demobank.Labs.Components;
 
@@ -19,6 +20,8 @@ public class QuickPaymentComponent : BaseComponent
         var selectElement = BaseElement.FindElement(ReceiverLocator);
         var select = new SelectElement(selectElement);
         select.SelectByText(receiver);
+
+        BaseElement.GetSelect(ReceiverLocator).SelectByText(receiver);
 
         BaseElement.FindElement(AmountLocator).SendKeys(amount.ToString());
         BaseElement.FindElement(TitleLocator).SendKeys(title);

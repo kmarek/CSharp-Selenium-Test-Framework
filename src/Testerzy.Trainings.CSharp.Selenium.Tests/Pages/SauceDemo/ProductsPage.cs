@@ -9,6 +9,9 @@ public class ProductsPage(IWebDriver driver) : BasePage(driver)
     protected By AddToCartBtnLocator => By.CssSelector(".btn_inventory");
     protected By CartProductCount => By.CssSelector(".shopping_cart_badge");
     protected By CartLinkLocator => By.CssSelector(".shopping_cart_link");
+    protected By SideMenuBtnLocator => By.Id("react-burger-menu-btn");
+    protected By LogoutMenuItemLocator => By.Id("logout_sidebar_link");
+    protected By ResetMenuItemLocator => By.Id("reset_sidebar_link");
 
     public List<ProductComponent> Products => GetProducts();
 
@@ -40,6 +43,19 @@ public class ProductsPage(IWebDriver driver) : BasePage(driver)
         Console.WriteLine($"Trying to get product '{productName}'.");
         return GetProducts()
             .First(productComponent => productComponent.GetName() == productName);
+    }
+
+    public ProductComponent GetProduct(Func<ProductComponent, bool> filter)
+    {
+        Console.WriteLine($"Trying to get product by specified filter.");
+        return GetProducts()
+            .First(filter);
+    }
+
+    public ProductsPage AddToCart(string productName)
+    {
+        GetProduct(productName).AddToCart();
+        return this;
     }
 
     public int GetProductInCartCount()

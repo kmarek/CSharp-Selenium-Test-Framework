@@ -27,7 +27,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Testerzy.Trainings.CSharp.Selenium.Configuration\Testerzy.Trainings.CSharp.Selenium.Configuration.csproj" />
-    <ProjectReference Include="..\Testerzy.Trainings.CSharp.Selenium.Framework\Testerzy.Trainings.CSharp.Selenium.Framework.csproj" />
   </ItemGroup>
 
   <ItemGroup>
